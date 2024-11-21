@@ -1,3 +1,4 @@
+import ThemeProvider from "@/components/Theme/ThemeProvider"
 import "@/styles/globals.css"
 import { Roboto_Mono } from "next/font/google"
 
@@ -8,7 +9,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="ru">
-			<body className={font_roboto.className}>{children}</body>
+			<body className={font_roboto.className}>
+				<ThemeProvider>{children}</ThemeProvider>
+			</body>
 		</html>
 	)
 }

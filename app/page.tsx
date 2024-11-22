@@ -1,6 +1,5 @@
-import Header from "@/components/Header/Header"
-import TodoList from "@/components/TodoList/TodoList"
 import { Metadata } from "next"
+import Title from "../components/PageTitle/PageTitle"
 
 export const metadata: Metadata = {
 	title: "TODO List",
@@ -10,9 +9,9 @@ export const metadata: Metadata = {
 export default function Home() {
 	return (
 		<>
-			<Header />
+			<Title title="Список дел"></Title>
 			{/* Фильтры */}
-			<TodoList />
+			{/* Список Todo */}
 		</>
 	)
 }

@@ -10,7 +10,9 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body className={font_roboto.className}>
-				<ThemeProvider>{children}</ThemeProvider>
+				<ThemeProvider>
+					<main>{children}</main>
+				</ThemeProvider>
 			</body>
 		</html>
 	)

@@ -1,3 +1,4 @@
+import TodoList from "@/components/TodoList/TodoList"
 import { Metadata } from "next"
 import Title from "../components/PageTitle/PageTitle"
 
@@ -11,7 +12,7 @@ export default function Home() {
 		<>
 			<Title title="Список дел"></Title>
 			{/* Фильтры */}
-			{/* Список Todo */}
+			<TodoList />
 		</>
 	)
 }

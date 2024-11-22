@@ -1,0 +1,7 @@
+.todo-list {
+	padding-top: 20px;
+}
+
+.todo-card:not(:first-child) {
+	margin-top: 10px;
+}

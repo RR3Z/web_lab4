@@ -2,13 +2,13 @@
 	{
 		"id": 1,
 		"title": "First TODO",
-		"description": "Something...",
-		"completed": false
+		"description": "IT IS FIRST TODO!!!! WOOOOOOOOOOOOOW!",
+		"completed": true
 	},
 	{
 		"id": 2,
 		"title": "Second TODO",
 		"description": "IT IS SECOND TODO!!!! WOOOOOOOOOOOOOW!",
-		"completed": true
+		"completed": false
 	}
 ]

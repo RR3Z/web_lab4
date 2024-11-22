@@ -7,10 +7,15 @@ import {
 	lucide_trash,
 } from "@/public/img/todo-card-icons"
 import { useEffect, useState } from "react"
-import { Props } from "./Props"
+import { CardData } from "./CardData"
 import "./TodoCard.css"
 
-export default function TodoCard({ id, title, description, completed }: Props) {
+export default function TodoCard({
+	id,
+	title,
+	description,
+	completed,
+}: CardData) {
 	const [isCompleted, setIsCompleted] = useState(false)
 
 	useEffect(() => {

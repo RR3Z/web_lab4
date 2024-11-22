@@ -2,8 +2,8 @@
 import { lucide_moon, lucide_sun } from "@/public/img/theme-icons"
 import { useTheme } from "next-themes"
 import { useEffect } from "react"
-import { Themes } from "./Themes"
 import "./ThemeSwitcher.css"
+import { Themes } from "./Themes"
 
 const availableThemes: Themes = {
 	light: "light-theme",
@@ -14,7 +14,7 @@ export default function ThemeSwitcher() {
 	const { theme, setTheme } = useTheme()
 
 	useEffect(() => {
-		setTheme(localStorage.getItem("theme") || "light")
+		setTheme(localStorage.getItem("theme") || availableThemes.light)
 	}, [])
 
 	function switchTheme() {

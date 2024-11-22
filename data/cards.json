@@ -1,0 +1,14 @@
+[
+	{
+		"id": 1,
+		"title": "First TODO",
+		"description": "Something...",
+		"completed": false
+	},
+	{
+		"id": 2,
+		"title": "Second TODO",
+		"description": "IT IS SECOND TODO!!!! WOOOOOOOOOOOOOW!",
+		"completed": true
+	}
+]

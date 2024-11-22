@@ -42,7 +42,6 @@ export async function DELETE(
 		const data = JSON.parse(fs.readFileSync(dataFilePath, "utf8"))
 		const updatedCards = data.filter((card: CardData) => card.id !== Number(id))
 		fs.writeFileSync(dataFilePath, JSON.stringify(updatedCards, null, 2))
-		console.log(JSON.parse(fs.readFileSync(dataFilePath, "utf8")))
 		return NextResponse.json({ message: "Card deleted" }, { status: 200 })
 	} catch (error) {
 		console.error(error)

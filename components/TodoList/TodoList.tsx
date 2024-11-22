@@ -1,14 +1,11 @@
 "use client"
 
 import TodoCard from "@/components/TodoCard/TodoCard"
-import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { CardData } from "../TodoCard/CardData"
 import "./TodoList.css"
 
-export default function TodoList({}) {
-	const router = useRouter()
-
+export default function TodoList() {
 	const [cards, setCards] = useState([])
 	const [loading, setLoading] = useState(true)
 

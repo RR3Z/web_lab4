@@ -52,3 +52,33 @@ export async function DELETE(
 		)
 	}
 }
+
+export async function PUT(
+	req: NextRequest,
+	{ params }: { params: { id: Number } }
+) {
+	const { id } = await params
+
+	try {
+		const data = fs.readFileSync(dataFilePath, "utf8")
+		const cards = JSON.parse(data)
+
+		const updatedData = await req.json()
+
+		const index = cards.findIndex((card: CardData) => card.id === Number(id))
+
+		if (index === -1) {
+			return NextResponse.json({ error: "Card not found" }, { status: 404 })
+		}
+		cards[index] = updatedData
+		fs.writeFileSync(dataFilePath, JSON.stringify(cards, null, 2))
+
+		return NextResponse.json({ message: "Card updated" }, { status: 200 })
+	} catch (error) {
+		console.error(error)
+		return NextResponse.json(
+			{ error: "Failed to update card" },
+			{ status: 500 }
+		)
+	}
+}

@@ -6,7 +6,6 @@ import {
 	lucide_pencil,
 	lucide_trash,
 } from "@/public/img/todo-card-icons"
-import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { CardData } from "./CardData"
 import "./TodoCard.css"
@@ -16,17 +15,16 @@ export default function TodoCard({
 	title,
 	description,
 	completed,
-}: CardData) {
+	onRemove,
+}: CardData & { onRemove: (id: Number) => void }) {
 	const [isCompleted, setIsCompleted] = useState(false)
-	const router = useRouter()
 
 	useEffect(() => {
 		setIsCompleted(completed)
 	}, [])
 
 	async function handleRemove() {
-		const response = await fetch(`/api/cards/${id}`, { method: "DELETE" })
-		if (response.ok) router.refresh()
+		onRemove(id)
 	}
 
 	return (

@@ -5,6 +5,8 @@
 	--btn-color: #b8cfff;
 	--input-bg-color: #afafaf;
 	--select-bg-color: #afafaf;
+	--done-color: #009900;
+	--not-done-color: #c20000;
 }
 
 .dark-theme {
@@ -14,6 +16,8 @@
 	--btn-color: #3574fa;
 	--input-bg-color: #646464;
 	--select-bg-color: #646464;
+	--done-color: #5dff5d;
+	--not-done-color: #ff5858;
 }
 
 * {

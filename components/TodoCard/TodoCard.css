@@ -1,0 +1,46 @@
+.todo-card {
+	background-color: var(--card-bg-color);
+	border-radius: 0.25rem;
+	padding: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.btn-icon {
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* position: relative; */
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.btn-icon svg {
+	width: 100%;
+	height: 100%;
+	color: var(--text-color);
+}
+
+.card-icons .btn-icon:not(:first-child) {
+	margin-top: 10px;
+}
+
+.status-done {
+	color: var(--done-color);
+}
+
+.status-undone {
+	color: var(--not-done-color);
+}

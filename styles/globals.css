@@ -35,3 +35,34 @@ body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
 }
+
+.custom-btn,
+.small-custom-btn {
+	background-color: var(--btn-color);
+	color: var(--text-color);
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	padding: 5px;
+	outline: none;
+}
+
+.custom-btn {
+	font-size: 1.25rem;
+}
+
+.small-custom-btn {
+	font-size: 0.9rem;
+}
+
+.custom-btn:disabled {
+	background-color: #ccc;
+}
+
+.custom-btn:focus {
+	outline: none;
+}
+
+.close-btn {
+	width: 30px;
+}

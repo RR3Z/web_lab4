@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
+import "./CardEditForm.css"
 
 export default function CardEditForm({ cardId }: { cardId: Number }) {
 	const [hasError, setHasError] = useState<boolean>(false)
@@ -74,7 +75,7 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 					<option value="false">Не cделано</option>
 				</select>
 			</div>
-			<button disabled={hasError} type="submit">
+			<button className="custom-btn" disabled={hasError} type="submit">
 				Изменить
 			</button>
 		</form>

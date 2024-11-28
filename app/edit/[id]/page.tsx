@@ -15,7 +15,7 @@ export default async function EditCard({ params }: Props) {
 	return (
 		<>
 			<Link href="/">
-				<button>Вернуться</button>
+				<button className="small-custom-btn">Вернуться</button>
 			</Link>
 			<PageTitle title="Редактирование карточки" />
 			<CardEditForm cardId={id} />

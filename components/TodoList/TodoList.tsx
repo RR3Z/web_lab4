@@ -36,6 +36,20 @@ export default function TodoList() {
 		}
 	}
 
+	async function editCard(newCard: CardData) {
+		const response = await fetch(`/api/cards/${newCard.id}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(newCard),
+		})
+
+		if (!response.ok) {
+			console.error("Failed to update card with id = " + newCard.id)
+		}
+	}
+
 	return (
 		<div className="todo-list">
 			{loading ? (
@@ -51,6 +65,7 @@ export default function TodoList() {
 						description={card.description}
 						completed={card.completed}
 						onRemove={removeCard}
+						editCard={editCard}
 					/>
 				))
 			)}

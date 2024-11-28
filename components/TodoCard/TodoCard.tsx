@@ -6,6 +6,7 @@ import {
 	lucide_pencil,
 	lucide_trash,
 } from "@/public/img/todo-card-icons"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { CardData } from "./CardData"
 import "./TodoCard.css"
@@ -16,27 +17,20 @@ export default function TodoCard({
 	description,
 	completed,
 	onRemove,
+	editCard,
 }: CardData & {
 	onRemove: (id: Number) => void
+	editCard: (cardData: CardData) => void
 }) {
 	const [isCompleted, setIsCompleted] = useState(completed)
 
-	async function handleRemove() {
-		onRemove(id)
+	const router = useRouter()
+	function handleEdit() {
+		router.push("/edit/" + id)
 	}
 
-	async function editCard(newCard: CardData) {
-		const response = await fetch(`/api/cards/${newCard.id}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(newCard),
-		})
-
-		if (!response.ok) {
-			console.error("Failed to update card with id = " + newCard.id)
-		}
+	function handleRemove() {
+		onRemove(id)
 	}
 
 	function handleUpdateStatus() {
@@ -65,7 +59,9 @@ export default function TodoCard({
 				<button className="btn-icon status-btn" onClick={handleUpdateStatus}>
 					{isCompleted ? lucide_eye_on : lucide_eye_off}
 				</button>
-				<button className="btn-icon edit-btn">{lucide_pencil}</button>
+				<button className="btn-icon edit-btn" onClick={handleEdit}>
+					{lucide_pencil}
+				</button>
 				<button className="btn-icon remove-btn" onClick={handleRemove}>
 					{lucide_trash}
 				</button>

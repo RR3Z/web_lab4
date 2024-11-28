@@ -1,4 +1,7 @@
+import CardEditForm from "@/components/CardEditForm/CardEditForm"
+import PageTitle from "@/components/PageTitle/PageTitle"
 import { Metadata } from "next"
+import Link from "next/link"
 import { Props } from "./Props"
 
 export const metadata: Metadata = {
@@ -9,5 +12,13 @@ export const metadata: Metadata = {
 export default async function EditCard({ params }: Props) {
 	const { id } = await params
 
-	return <div>Edit card with ID = {id}</div>
+	return (
+		<>
+			<Link href="/">
+				<button>Вернуться</button>
+			</Link>
+			<PageTitle title="Редактирование карточки" />
+			<CardEditForm cardId={id} />
+		</>
+	)
 }

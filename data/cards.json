@@ -1,14 +1,14 @@
 [
-	{
-		"id": 1,
-		"title": "First TODO",
-		"description": "IT IS FIRST TODO!!!! WOOOOOOOOOOOOOW!",
-		"completed": true
-	},
-	{
-		"id": 2,
-		"title": "Second TODO",
-		"description": "IT IS SECOND TODO!!!! WOOOOOOOOOOOOOW!",
-		"completed": false
-	}
+  {
+    "id": 1,
+    "title": "Сделать ДЗ по Web (4 лаба)",
+    "description": "Какой же React классный... :)",
+    "completed": true
+  },
+  {
+    "id": 2,
+    "title": "Second TODO",
+    "description": "IT IS SECOND TODO!!!! WOOOOOOOOOOOOOW!",
+    "completed": false
+  }
 ]

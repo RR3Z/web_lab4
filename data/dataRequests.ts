@@ -24,8 +24,6 @@ export async function editCard(newCard: CardData): Promise<void> {
 			console.error("Failed to update card with id = " + newCard.id, errorData)
 			throw new Error(`Error: ${errorData.error || "Unknown error"}`)
 		}
-
-		console.log("Card updated successfully:", newCard.id)
 	} catch (error) {
 		console.error("An error occurred while updating the card:", error)
 	}

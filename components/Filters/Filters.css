@@ -1,0 +1,16 @@
+.filters-form {
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+}
+
+.filters-form .card-status-select {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+.form-input-container label {
+	margin-bottom: 8px;
+	font-size: 1.25rem;
+}

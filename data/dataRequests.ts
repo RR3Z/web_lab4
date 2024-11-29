@@ -18,6 +18,16 @@ export async function getCardsWithFilter(filter: string) {
 	}
 }
 
+export async function getCardById(id: Number) {
+	const response = await fetch(`/api/cards/${id}`, { method: "GET" })
+
+	if (!response.ok) {
+		throw new Error("Unknown card id!")
+	}
+
+	return await response.json()
+}
+
 export async function editCard(newCard: CardData): Promise<void> {
 	try {
 		const response = await fetch(`/api/cards/${newCard.id}`, {

@@ -47,23 +47,28 @@ export default function TodoList() {
 	return (
 		<div className="inline-container">
 			<Filters onFiltersSubmit={loadCardsWithFilter} />
-			<div className="todo-list">
-				{loading ? (
-					<p>Loading data...</p>
-				) : cards.length === 0 ? (
-					<p>Список пуст!</p>
-				) : (
-					cards.map((card: CardData) => (
-						<TodoCard
-							key={card.id.toString()}
-							id={card.id}
-							title={card.title}
-							description={card.description}
-							completed={card.completed}
-							removeCardFunc={onRemove}
-						/>
-					))
-				)}
+			<div className="todo-list-container">
+				<div className="todo-list">
+					{loading ? (
+						<p>Loading data...</p>
+					) : cards.length === 0 ? (
+						<p>Список пуст!</p>
+					) : (
+						cards.map((card: CardData) => (
+							<TodoCard
+								key={card.id.toString()}
+								id={card.id}
+								title={card.title}
+								description={card.description}
+								completed={card.completed}
+								removeCardFunc={onRemove}
+							/>
+						))
+					)}
+				</div>
+				<a href="/new">
+					<button className="custom-btn create-card-btn">Создать новую</button>
+				</a>
 			</div>
 		</div>
 	)

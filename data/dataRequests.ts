@@ -55,3 +55,22 @@ export async function removeCard(id: Number) {
 		console.error("Failed to delete card with id = " + id)
 	}
 }
+
+export async function createCard(newCard: CardData) {
+	const cards = await getCards()
+	newCard.id = cards.length + 1
+
+	const response = await fetch(`/api/cards/new`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(newCard),
+	})
+
+	if (!response.ok) {
+		const errorData = await response.json()
+		console.error("Failed to update card with id = " + newCard.id, errorData)
+		throw new Error(`Error: ${errorData.error || "Unknown error"}`)
+	}
+}

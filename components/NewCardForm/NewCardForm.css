@@ -1,0 +1,40 @@
+.form-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-container .custom-btn {
+	margin-top: 7px;
+}
+
+.form-input-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-input-container {
+	margin-top: 5px;
+	margin-bottom: 8px;
+}
+
+.form-input-container label {
+	margin-bottom: 8px;
+	font-size: 1.5rem;
+}
+
+.custom-input,
+.custom-textarea {
+	color: var(--text-color);
+	background-color: var(--input-bg-color);
+	border: none;
+	border-radius: 0.25rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+	cursor: pointer;
+	outline: none;
+}
+
+.custom-textarea {
+	height: 150px;
+	resize: none;
+}

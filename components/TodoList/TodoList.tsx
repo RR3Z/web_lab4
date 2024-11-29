@@ -1,7 +1,7 @@
 "use client"
 
 import TodoCard from "@/components/TodoCard/TodoCard"
-import { getCards, removeCard } from "@/data/dataRequests"
+import { getCards, getCardsWithFilter, removeCard } from "@/data/dataRequests"
 import { useEffect, useState } from "react"
 import Filters from "../Filters/Filters"
 import { CardData } from "../TodoCard/CardData"
@@ -32,9 +32,21 @@ export default function TodoList() {
 		setCards(prevCards => prevCards.filter(card => card.id !== id))
 	}
 
+	async function loadCardsWithFilter(filter: string) {
+		try {
+			setLoading(true)
+			const cards: CardData[] = await getCardsWithFilter(filter)
+			setCards(cards)
+		} catch (error) {
+			console.error(error)
+		} finally {
+			setLoading(false)
+		}
+	}
+
 	return (
 		<div className="inline-container">
-			<Filters />
+			<Filters onFiltersSubmit={loadCardsWithFilter} />
 			<div className="todo-list">
 				{loading ? (
 					<p>Loading data...</p>

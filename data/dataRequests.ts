@@ -9,6 +9,15 @@ export async function getCards() {
 	}
 }
 
+export async function getCardsWithFilter(filter: string) {
+	const response = await fetch(`/api/cards?status=${filter}`)
+	if (!response.ok) {
+		throw new Error("Failed to load data")
+	} else {
+		return (await response.json()).cards
+	}
+}
+
 export async function editCard(newCard: CardData): Promise<void> {
 	try {
 		const response = await fetch(`/api/cards/${newCard.id}`, {

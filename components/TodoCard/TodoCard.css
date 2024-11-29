@@ -11,6 +11,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	width: 92%;
 }
 
 .btn-icon {
@@ -35,6 +36,9 @@
 
 .card-icons {
 	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .card-icons .btn-icon:not(:first-child) {
@@ -52,4 +56,15 @@
 .card-title,
 .card-desc {
 	margin-bottom: 15px;
+}
+
+.card-desc {
+	display: flex;
+	flex-direction: column;
+}
+
+.card-desc-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
 }

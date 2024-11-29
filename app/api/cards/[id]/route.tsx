@@ -69,7 +69,8 @@ export async function PUT(
 		if (index === -1) {
 			return NextResponse.json({ error: "Card not found" }, { status: 404 })
 		}
-		cards[index] = updatedData
+
+		cards[index] = { ...cards[index], ...updatedData }
 		fs.writeFileSync(dataFilePath, JSON.stringify(cards, null, 2))
 
 		return NextResponse.json({ message: "Card updated" }, { status: 200 })

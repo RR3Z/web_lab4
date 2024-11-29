@@ -1,5 +1,7 @@
 "use client"
 
+import { editCard } from "@/data/dataRequests"
+import { useRouter } from "next/navigation"
 import React, { useEffect, useState } from "react"
 import "./CardEditForm.css"
 
@@ -8,6 +10,8 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 	const [title, setTitle] = useState<string>("")
 	const [description, setDescription] = useState<string>("")
 	const [status, setStatus] = useState<boolean>(false)
+
+	const router = useRouter()
 
 	useEffect(() => {
 		async function getCard() {
@@ -21,17 +25,23 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 			}
 		}
 
-		getCard()
+		try {
+			getCard()
+		} catch (error) {
+			console.error(error)
+		}
 	}, [])
 
 	const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		onFormSubmit({
-			id: cardId,
+		editCard({
+			id: Number(cardId),
 			title: title,
 			description: description,
-			status: status,
+			completed: status,
 		})
 		event.preventDefault()
+
+		router.push("/")
 	}
 
 	const handleTittleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +69,7 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 					id="description"
 					className="custom-textarea"
 					value={description}
-					onChange={event => setDescription(event.target.value)}
+					onChange={event => setDescription(event.target?.value)}
 				/>
 			</div>
 
@@ -69,7 +79,7 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 					className="custom-select"
 					name="status"
 					value={status.toString()}
-					onChange={event => setStatus(event.target.value === "true")}
+					onChange={event => setStatus(event.target?.value === "true")}
 				>
 					<option value="true">Сделано</option>
 					<option value="false">Не cделано</option>

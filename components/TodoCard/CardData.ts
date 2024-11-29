@@ -1,5 +1,5 @@
 export type CardData = {
-	id: number
+	id: Number
 	title: string
 	description: string
 	completed: boolean

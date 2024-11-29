@@ -10,21 +10,27 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 	const [title, setTitle] = useState<string>("")
 	const [description, setDescription] = useState<string>("")
 	const [status, setStatus] = useState<boolean>(false)
-	const [loading, setLoading] = useState<boolean>(false)
+	const [isLoading, setIsLoading] = useState<boolean>(false)
+	const [isCardAvailable, setIsCardAvailable] = useState<boolean>(false)
 
 	const router = useRouter()
 
 	useEffect(() => {
 		async function loadCard() {
-			setLoading(true)
+			setIsLoading(true)
+
 			const cardData = await getCardById(Number(cardId))
 
 			if (cardData) {
 				setTitle(cardData.title)
 				setDescription(cardData.description)
 				setStatus(cardData.completed)
-				setLoading(false)
+				setIsCardAvailable(true)
+			} else {
+				setIsCardAvailable(false)
 			}
+
+			setIsLoading(false)
 		}
 
 		loadCard()
@@ -49,9 +55,9 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 
 	return (
 		<>
-			{loading ? (
+			{isLoading ? (
 				<p>Loading...</p>
-			) : (
+			) : isCardAvailable ? (
 				<form onSubmit={handleFormSubmit} className="form-container">
 					<div className="card-title-field form-input-container">
 						<label htmlFor="title">Название</label>
@@ -91,6 +97,12 @@ export default function CardEditForm({ cardId }: { cardId: Number }) {
 						Изменить
 					</button>
 				</form>
+			) : (
+				<>
+					<h3 style={{ marginTop: 15 }}>
+						Ошибка: попытка загрузить карточку с неизвестным ID
+					</h3>
+				</>
 			)}
 		</>
 	)

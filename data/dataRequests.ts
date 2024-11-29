@@ -22,7 +22,7 @@ export async function getCardById(id: Number) {
 	const response = await fetch(`/api/cards/${id}`, { method: "GET" })
 
 	if (!response.ok) {
-		throw new Error("Unknown card id!")
+		return null
 	}
 
 	return await response.json()

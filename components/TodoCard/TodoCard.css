@@ -33,6 +33,10 @@
 	color: var(--text-color);
 }
 
+.card-icons {
+	margin-left: 10px;
+}
+
 .card-icons .btn-icon:not(:first-child) {
 	margin-top: 10px;
 }
@@ -43,4 +47,9 @@
 
 .status-undone {
 	color: var(--not-done-color);
+}
+
+.card-title,
+.card-desc {
+	margin-bottom: 15px;
 }

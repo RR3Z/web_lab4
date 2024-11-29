@@ -22,16 +22,6 @@
 	font-size: 1.5rem;
 }
 
-.custom-select {
-	font-size: 1rem;
-	background-color: var(--select-bg-color);
-	color: var(--text-color);
-	border: none;
-	border-radius: 0.25rem;
-	outline: none;
-	padding: 0.5rem;
-}
-
 .custom-input,
 .custom-textarea {
 	color: var(--text-color);

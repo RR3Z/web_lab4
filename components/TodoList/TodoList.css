@@ -1,5 +1,14 @@
 .todo-list {
-	padding-top: 20px;
+	margin-left: 15px;
+	width: 80%;
+	height: 80vh;
+	overflow: auto;
+	padding-right: 10px;
+}
+
+.todo-list {
+	scrollbar-color: var(--card-bg-color) transparent;
+	scrollbar-width: thin;
 }
 
 .todo-card:not(:first-child) {

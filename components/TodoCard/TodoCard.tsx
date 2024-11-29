@@ -1,5 +1,7 @@
 "use client"
 
+import { CardData } from "@/components/TodoCard/CardData"
+import { editCard } from "@/data/dataRequests"
 import {
 	lucide_eye_off,
 	lucide_eye_on,
@@ -8,7 +10,6 @@ import {
 } from "@/public/img/todo-card-icons"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import { CardData } from "./CardData"
 import "./TodoCard.css"
 
 export default function TodoCard({
@@ -16,27 +17,11 @@ export default function TodoCard({
 	title,
 	description,
 	completed,
-	onRemove,
-	editCard,
-}: CardData & {
-	onRemove: (id: Number) => void
-	editCard: (cardData: CardData) => void
-}) {
+	removeCardFunc,
+}: CardData & { removeCardFunc: (id: Number) => void }) {
 	const [isCompleted, setIsCompleted] = useState(completed)
 
 	const router = useRouter()
-	function handleEdit() {
-		router.push("/edit/" + id)
-	}
-
-	function handleRemove() {
-		onRemove(id)
-	}
-
-	function handleUpdateStatus() {
-		setIsCompleted(prevState => !prevState)
-		editCard({ id, title, description, completed: !isCompleted })
-	}
 
 	return (
 		<div className="todo-card">
@@ -56,13 +41,25 @@ export default function TodoCard({
 				</div>
 			</div>
 			<div className="card-icons">
-				<button className="btn-icon status-btn" onClick={handleUpdateStatus}>
+				<button
+					className="btn-icon status-btn"
+					onClick={() => {
+						setIsCompleted(prevState => !prevState)
+						editCard({ id, title, description, completed: !isCompleted })
+					}}
+				>
 					{isCompleted ? lucide_eye_on : lucide_eye_off}
 				</button>
-				<button className="btn-icon edit-btn" onClick={handleEdit}>
+				<button
+					className="btn-icon edit-btn"
+					onClick={() => router.push("/edit/" + id)}
+				>
 					{lucide_pencil}
 				</button>
-				<button className="btn-icon remove-btn" onClick={handleRemove}>
+				<button
+					className="btn-icon remove-btn"
+					onClick={() => removeCardFunc(id)}
+				>
 					{lucide_trash}
 				</button>
 			</div>

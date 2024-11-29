@@ -1,3 +1,4 @@
+import Filters from "@/components/Filters/Filters"
 import TodoList from "@/components/TodoList/TodoList"
 import { Metadata } from "next"
 import Title from "../components/PageTitle/PageTitle"
@@ -11,8 +12,10 @@ export default function Home() {
 	return (
 		<>
 			<Title title="Список дел"></Title>
-			{/* Фильтры */}
-			<TodoList />
+			<div className="inline-container">
+				<Filters />
+				<TodoList />
+			</div>
 		</>
 	)
 }

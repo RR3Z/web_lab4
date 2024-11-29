@@ -3,6 +3,7 @@
 import TodoCard from "@/components/TodoCard/TodoCard"
 import { getCards, removeCard } from "@/data/dataRequests"
 import { useEffect, useState } from "react"
+import Filters from "../Filters/Filters"
 import { CardData } from "../TodoCard/CardData"
 import "./TodoList.css"
 
@@ -32,23 +33,26 @@ export default function TodoList() {
 	}
 
 	return (
-		<div className="todo-list">
-			{loading ? (
-				<p>Loading data...</p>
-			) : cards.length === 0 ? (
-				<p>Список пуст!</p>
-			) : (
-				cards.map((card: CardData) => (
-					<TodoCard
-						key={card.id.toString()}
-						id={card.id}
-						title={card.title}
-						description={card.description}
-						completed={card.completed}
-						removeCardFunc={onRemove}
-					/>
-				))
-			)}
+		<div className="inline-container">
+			<Filters />
+			<div className="todo-list">
+				{loading ? (
+					<p>Loading data...</p>
+				) : cards.length === 0 ? (
+					<p>Список пуст!</p>
+				) : (
+					cards.map((card: CardData) => (
+						<TodoCard
+							key={card.id.toString()}
+							id={card.id}
+							title={card.title}
+							description={card.description}
+							completed={card.completed}
+							removeCardFunc={onRemove}
+						/>
+					))
+				)}
+			</div>
 		</div>
 	)
 }
